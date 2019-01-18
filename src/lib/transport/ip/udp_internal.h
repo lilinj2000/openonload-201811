@@ -1,0 +1,42 @@
+/*
+** Copyright 2005-2018  Solarflare Communications Inc.
+**                      7505 Irvine Center Drive, Irvine, CA 92618, USA
+** Copyright 2002-2005  Level 5 Networks Inc.
+**
+** This program is free software; you can redistribute it and/or modify it
+** under the terms of version 2 of the GNU General Public License as
+** published by the Free Software Foundation.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+*/
+
+/**************************************************************************\
+*//*! \file
+** <L5_PRIVATE L5_SOURCE>
+** \author  djr
+**  \brief  UDP internals
+**   \date  2008/09/26
+**    \cop  (c) Solarflare Communications Inc.
+** </L5_PRIVATE>
+*//*
+\**************************************************************************/
+  
+#ifndef __UDP_INTERNAL_H__
+#define __UDP_INTERNAL_H__
+
+
+struct ci_udp_rx_deliver_state {
+  ci_netif*      ni;
+  ci_ip_pkt_fmt* pkt;
+  int            delivered;
+  int            queued;
+};
+
+
+extern int ci_udp_rx_deliver(ci_sock_cmn*, void*) CI_HF;
+
+
+#endif  /* __UDP_INTERNAL_H__ */
